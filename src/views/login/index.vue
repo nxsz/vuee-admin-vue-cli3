@@ -17,7 +17,7 @@
                         <el-input v-model="loginForm.password"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button>登 录</el-button>
+                        <el-button @click="login()">登 录</el-button>
                     </el-form-item>
                 </el-form>
             </div>
@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import login from '../../api/user';
 
 export default Vue.extend({
   data() {
@@ -36,6 +37,11 @@ export default Vue.extend({
         password: null,
       },
     };
+  },
+  methods: {
+    login() {
+      login(this.loginForm);
+    },
   },
 });
 </script>
